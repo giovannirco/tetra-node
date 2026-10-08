@@ -1,0 +1,27 @@
+{
+  "name": "tetra-node",
+  "version": "0.1.0",
+  "description": "Tetra in Node.js: a four-operation arithmetic API with live three.js request telemetry",
+  "license": "MIT",
+  "author": "Giovanni Coutinho",
+  "type": "module",
+  "private": true,
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "DRAIN_DELAY_SECONDS=0 LOG_LEVEL=debug node --watch src/server.js",
+    "test": "node --test test/*.test.js",
+    "cover": "c8 --reporter=text --reporter=html --reporter=lcov --check-coverage --lines 90 node --test test/*.test.js",
+    "lint": "node --check src/*.js test/*.js && prettier --check src test"
+  },
+  "dependencies": {
+    "prom-client": "15.1.3"
+  },
+  "devDependencies": {
+    "c8": "10.1.3",
+    "prettier": "3.3.3"
+  }
+}
